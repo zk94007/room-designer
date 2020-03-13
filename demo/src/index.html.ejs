@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>roomDesigner - Design Your Room in 3D</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+      * { box-sizing: border-box; }
+
+      html, body, #app {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      /* Custom Styles */
+      #viewer-3d {
+        /* width: 800px; */
+        overflow: hidden;
+      }
+
+      #catalog-container .catalog-item {
+        margin: 10px auto !important;
+      }
+      .toolbar-btn {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: left;
+        margin-bottom: 5px;
+        font-size: 14px;
+        position: relative;
+        cursor: pointer;
+        padding-left: 10px;
+        padding-top: 7px;
+        text-transform: capitalize;
+        position: relative;
+      }
+      .toolbar-btn.is-active {
+        background-color: rgb(40, 41, 45);
+        color: #fff;
+      }
+
+      .items-close-button {
+        font-size: 18px;
+      }
+
+      .unitStyle {
+        font-size: 13px;
+        margin-left: 5px;
+        color: rgb(85, 89, 92);
+      }
+
+    </style>
+  </head>
+  <body>
+
+
+    <!-- REACT APP -->
+    <div id="app"></div>
+
+
+    <!-- FloorPlan Modal -->
+    <div class="modal fade in" style="display: block;" id="floorplanModal" tabindex="-1" role="dialog" aria-labelledby="Edit FloorPlan Modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><b>Room Dimensions</b></h5>
+            <button type="button" id="floorplanModalClose" class="close floorplan-modal-close" data-dismiss="modal" style="margin-top: -20px" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <form id="floorplanForm">
+          <div class="modal-body">
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="floorWidth">Floor Width(mm)</label>
+                    <input type="number" id="floorWidth" class="form-control" value="5000" placeholder="Floor Width">
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="floorHeight">Floor Length(mm)</label>
+                    <input type="number" id="floorHeight" class="form-control" value="5000" placeholder="Floor Height">
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label for="wallHeight">Ceiling Height(mm)</label>
+                    <input type="number" id="wallHeight" class="form-control" value="3000" placeholder="Ceiling Height">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" type="submit">Submit</button>
+              <button class="btn btn-danger floorplan-modal-close" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- QUOTE Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Quote</h5>
+            <button type="button" id="exampleModalClose" class="close quote-modal-close" data-dismiss="modal" style="margin-top: -20px" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Default form register -->
+            <form class="text-center border border-light p-5">
+              <div class="row">
+                <div class="col-md-8 col-sm-offset-2">
+                  <p class="text-info">Send us your design for an experienced designer to check your
+                    design and then send you a quote.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" id="phone" class="form-control" placeholder="Phone">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" id="mobile" class="form-control" placeholder="Mobile">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <textarea name="address" id="" rows="3" class="form-control" placeholder="Address"></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" id="subrub" class="form-control" placeholder="Subrub">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" id="postcode" class="form-control" placeholder="Post Code">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <select name="state" id="state" class="form-control">
+                      <option value="">State</option>
+                      <option value="New South Wales">New South Wales</option>
+                      <option value="Victoria">Victoria</option>
+                      <option value="Tasmania">Tasmania</option>
+                      <option value="Northern Territory">Northern Territory</option>
+                      <option value="Southern Australia">Southern Australia</option>
+                      <option value="Western Australia">Western Australia</option>
+                      <option value="Queensland">Queensland</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <select name="state" id="state" class="form-control">
+                      <option value="">Where did you hear about us?</option>
+                      <option value="Advertising">Advertising</option>
+                      <option value="Newspaper">Newspaper</option>
+                      <option value="Magazine">Magazine</option>
+                      <option value="Brochure">Brochure</option>
+                      <option value="Internet">Internet</option>
+                      <option value="Radio">Radio</option>
+                      <option value="Friend">Friend</option>
+                      <option value="Referral">Referral</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- E-mail -->
+
+              <!---->
+              <!--                        <!-- Password -->
+              <!--                        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">-->
+              <!--                        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">-->
+              <!--                            At least 8 characters and 1 digit-->
+              <!--                        </small>-->
+              <!---->
+              <!--                        <!-- Phone number -->
+              <!--                        <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">-->
+              <!--                        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">-->
+              <!--                            Optional - for two step authentication-->
+              <!--                        </small>-->
+
+
+              <!-- Sign up button -->
+
+
+              <!-- Social register -->
+
+
+              <!-- Terms of service -->
+
+
+            </form>
+            <!-- Default form register -->
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-info my-4" type="submit">Submit</button>
+            <button type="button" class="btn btn-danger quote-modal-close" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

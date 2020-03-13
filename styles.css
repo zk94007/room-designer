@@ -1,0 +1,36 @@
+#viewer-3d {
+  /* width: 800px; */
+  overflow: hidden;
+}
+
+#catalog-container .catalog-item {
+  margin: 10px auto !important;
+}
+.toolbar-btn {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 5px;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-top: 7px;
+  text-transform: capitalize;
+  position: relative;
+}
+.toolbar-btn.is-active {
+  background-color: rgb(40, 41, 45);
+  color: #fff;
+}
+
+.items-close-button {
+  font-size: 18px;
+}
+
+.unitStyle {
+  font-size: 13px;
+  margin-left: 5px;
+  color: rgb(85, 89, 92);
+}

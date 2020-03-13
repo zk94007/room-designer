@@ -1,0 +1,485 @@
+<!doctype html>
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <title>MyKitchen - Kitchen Designer built with React.js</title>
+
+  <meta name="author" content="Synchrotheme">
+  <meta name="copyright" content="Enabled">
+  <link rel="stylesheet" href="css/documenter_style.css" media="all">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <script src="js/jquery.js"></script>
+  <link rel="stylesheet" href="css/shDocumenter.css" media="screen">
+  <script>
+    $('a.smoth-scroll').on("click", function (e) {
+      var menu = $(this);
+      $('html, body').stop().animate({
+        scrollTop: $(menu.attr('href')).offset().top - 50
+      }, 1000);
+      e.preventDefault();
+    });
+  </script>
+
+  <style>
+    html {
+      background-color: #FFFFFF;
+      color: #383838;
+    }
+
+    ::-moz-selection {
+      background: #444444;
+      color: #DDDDDD;
+    }
+
+    ::selection {
+      background: #444444;
+      color: #DDDDDD;
+    }
+
+    #documenter_sidebar #documenter_logo {
+      background-image: url(css/img/logo.png);
+    }
+
+    a {
+      color: #0000FF;
+    }
+
+    hr {
+      border-top: 1px solid #EBEBEB;
+      border-bottom: 1px solid #FFFFFF;
+    }
+
+    #documenter_sidebar,
+    #documenter_sidebar ol a {
+      background-color: #2196F3;
+      color: #000;
+    }
+
+    #documenter_sidebar ol {
+      border-top: 1px solid #fff;
+    }
+
+    #documenter_sidebar ol a {
+      color: #FFF;
+    }
+
+    #documenter_sidebar ol a:hover {
+      background: #3e3838;
+      color: #DDDDDD;
+      border-top: 1px solid #444444;
+    }
+
+    #documenter_sidebar ol a.current {
+      background: #3e3838;
+      color: #ffffff;
+      border-top: 1px solid #444444;
+    }
+
+    #documenter_copyright {
+      display: block !important;
+      visibility: visible !important;
+    }
+
+    div#documenter_sidebar h4 {
+      text-align: center;
+      font-size: 25px;
+      color: #fff;
+      margin: 50px 0;
+      font-weight: 700;
+    }
+
+    div#documenter_copyright p {
+      text-align: center;
+      color: #f7f7f7;
+      font-size: 14px;
+    }
+    #documenter_sidebar p {
+      color: #f7f7f7;
+      text-align: center;
+    }
+  </style>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div id="documenter_sidebar">
+    <h4>myKitchen</h4>
+    <p>&copy; Synchrotheme 2018</p>
+    <ol id="documenter_nav">
+      <li><a class="current smoth-scroll" href="#documenter_cover">Start</a></li>
+      <li><a class="smoth-scroll" href="#structure">Files and folders structure</a></li>
+      <li><a class="smoth-scroll" href="#install">Installation</a></li>
+      <li><a class="smoth-scroll" href="#grid">Grid System</a></li>
+      <li><a class="smoth-scroll" href="#icons">Font Icons</a></li>
+      <li><a class="smoth-scroll" href="#home">Customize Home</a></li>
+      <li><a class="smoth-scroll" href="#about">Customize About</a></li>
+      <li><a class="smoth-scroll" href="#skills">Customize Skills</a></li>
+      <li><a class="smoth-scroll" href="#services">Customize Services</a></li>
+      <li><a class="smoth-scroll" href="#counter">Customize Counter</a></li>
+      <li><a class="smoth-scroll" href="#works">Customize Works</a></li>
+      <li><a class="smoth-scroll" href="#experience">Customize Experience</a></li>
+      <li><a class="smoth-scroll" href="#testimonial">Customize Testimonial</a></li>
+      <li><a class="smoth-scroll" href="#blog">Customize Blog</a></li>
+      <li><a class="smoth-scroll" href="#contact">Customize Contact</a></li>
+      <li><a class="smoth-scroll" href="#footer">Customize Footer</a></li>
+    </ol>
+  </div>
+  <div id="documenter_content">
+    <section id="documenter_cover">
+      <h1>myKitchen</h1>
+      <h2>Kitchen Designer built with React.js</h2>
+      <hr>
+      <ul>
+        <li>Created: 04/02/2019</li>
+        <li>By: Synchrotheme</li>
+        <li>Email: <a href="info@synchronisebd.com ">info@synchronisebd.com </a></li>
+      </ul>
+      <p>Thank you for purchasing "myKitchen - Kitchen Designer Built with React.js". If you have any questions that are
+        beyond the scope of this help file, please feel free to submit a ticket at our <a href="https://www.synchronisebd.com/ ">Support
+          Forum</a>. Thanks so much!</p>
+      <p>"myKitchen" is a fully functional React.js based kitchen designer created with &#10084; and React.js. You can use this app for creating
+      a mockup design for your home's kitchen before wholly renovating your kitchen. This will help you save your time, effort and money.</p>
+
+
+      <h2>How to use myKitchen?</h2>
+      <p>
+        "myKitchen" is a very easy to update and modify.
+        Steps for modification and updating are described step by step in this exclusive documentation.
+      </p>
+    </section>
+
+    <section id="structure">
+      <h2>Files and folders structure</h2>
+      <hr>
+      <p>
+        The whole app is divided in to several directories and subdirectories.
+        The whole app consists of React components and subcomponents. The whole directory structure is given below.
+        The work of every component and subcomponent can be easily understood by their name.
+      </p>
+      <pre>
+myKitchen
+├── demo
+│   ├── dist                            // You will deploy contents this folder in your server
+│   ├── src
+│   │   └── catalog                     // You will add your custom components here
+│   └── webpack.config.js               // webpack configuration for this app
+├── docs                                // Documentation for using the app
+├── package.json                        // package.json contains the dependency and version informations
+├── src
+│   ├── actions                         // Actions of the designer
+│   ├── catalog                         // Catalog handling codes
+│   ├── class                           // Classes used in this app
+│   ├── components                      // Directory containing all the components
+│   ├── constants.js                    // Constants necessary for the app
+│   ├── models.js                       // Models for the app
+│   ├── plugins                         // Plugins for the app
+│   ├── react-planner.jsx               // Main Component
+│   ├── reducers                        // Reducers needed for the app
+│   ├── shared-style.js                 // Common styles for the app
+│   ├── styles                          // Other styles for the app
+│   ├── utils                           // Utility functions and classes for the app
+│   └── version.js                      // App version information
+└── styles.css                          // Default styles.css
+      </pre>
+    </section>
+    <section id="install">
+      <h2>BUILD THE TEMPLATE FOR PRODUCTION</h2>
+      <hr>
+      <p>
+        <ul>
+          <li>
+            Install <a href="https://nodejs.org/en/download/"><kbd>npm</kbd></a> or
+            <a href="https://yarnpkg.com/lang/en/docs/install"><kbd>yarn</kbd></a></li>
+          <li>
+            Install all the required dependencies
+            <pre>
+yarn install // For yarn
+npm install  // For npm</pre>
+          </li>
+          <li>
+            Build for Production
+            <pre>
+yarn build-demo  // For yarn
+npm run build-demo  // For npm
+            </pre>
+          </li>
+        </ul>
+        After building for production it will create a <kbd>dist</kbd> directory inside the <kbd>demo</kbd> directory.
+        This directory will contain all the necessary files for hosting.
+        <br>
+        <small><b>P.S.</b> Everytime you change anything in the source code you must build the template again.
+          Otherwise, your changes will not reflect on the template.</small>
+      </p>
+
+      <h2>INSTALLATION ON YOUR SERVER VIA FTP</h2>
+      <hr>
+      <p>After building the template for production you can easily upload the template to your FTP server.</p>
+      <strong>Step 1</strong> - Log into your hosting space via an FTP software (Filezilla for example).<br>
+
+      <strong>Step 2</strong> - Upload all the content of the <kbd>demo/dist</kbd> directory into the root of your ftp
+      server.<br>
+
+    </section>
+
+    <section id="adding-catalog">
+      <h2>Adding your Catalog</h2>
+      <hr>
+      <p>
+        You can add your own catalog to the app following below steps.
+        We conventionally use
+        <a href="https://github.com/novemberborn/babel-plugin-import-glob">babel-plugin-import-glob</a>
+        to import multiple Elements at the same time,although you could keep importing them individually. <br>
+        For adding an Element to the Catalog you should call the <kbd>catalog.registerElement</kbd> function passing the Element as parameter. <br>
+        You could also register a category with the function <kbd>catalog.registerCategory</kbd>
+        passing as parameteres the category name, label and the childs Elements. <br>
+        If an Element is being added without pushing it into any category, it will be shown in the Catalog's main page. <br>
+
+        Edit the <kbd>demo/src/catalog/mycatalog.js</kbd> for customizing the catalog.
+      </p>
+    </section>
+
+    <section id="adding-item">
+      <h2>Adding Elements</h2>
+      <hr>
+      <p>You can add your items easily to the app following the below steps.</p>
+      <p>
+        In this example we will create a simple cube. <br>
+        <pre>
+import {BoxGeometry, MeshBasicMaterial, Mesh, BoxHelper} from 'three';
+
+import React from 'react';
+
+export default {
+  name: 'cube',
+  prototype: 'items',
+
+  info: {
+    title: 'cube',
+    tag: ['demo'],
+    description: 'Demo item',
+    image: require('./cube.png')
+  },
+
+  properties: {
+    color: {
+      label: 'Color',
+      type: 'color',
+      defaultValue: '#F48342'
+    }
+  },
+
+  render2D: (element, layer, scene) => {
+    let style = {
+      stroke: '#000',
+      strokeWidth: element.selected ? '2px' : '0px',
+      fill: element.properties.get('color')
+    };
+
+    return (
+      <g transform="translate(-50, -50)">
+        <rect x="0" y="0" width="100" height="100" style={style}/>
+      </g>
+    );
+  },
+
+  render3D: (element, layer, scene) => {
+    let geometry = new BoxGeometry(100, 100, 100);
+    let material = new MeshBasicMaterial({
+      color: element.properties.get('color')
+    });
+
+    let mesh = new Mesh(geometry, material);
+
+    if (element.selected) {
+      let box = new BoxHelper(mesh, '#000');
+      box.material.linewidth = 1;
+      box.material.depthTest = false;
+      box.renderOrder = 1000;
+      mesh.add(box);
+    }
+
+    mesh.position.y = +50;
+
+    return Promise.resolve(mesh);
+  }
+
+};</pre>
+        <h4>Element Properties</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Property Name</th>
+              <th align="center">Type</th>
+              <th align="center">Value</th>
+              <th align="center">Possible Values</th>
+              <th align="center">Optional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td align="center">String</td>
+              <td align="center">'cube'</td>
+              <td align="center">any</td>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td>prototype</td>
+              <td align="center">String</td>
+              <td align="center">'items'</td>
+              <td align="center">'items' | 'lines' | 'holes'</td>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td>info</td>
+              <td align="center">Object</td>
+              <td align="center">...</td>
+              <td align="center">...</td>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td>properties</td>
+              <td align="center">Object</td>
+              <td align="center">...</td>
+              <td align="center">...</td>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td>render2D</td>
+              <td align="center">Function</td>
+              <td align="center">...</td>
+              <td align="center">...</td>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td>render3D</td>
+              <td align="center">Function</td>
+              <td align="center">...</td>
+              <td align="center">...</td>
+              <td align="center"></td>
+            </tr>
+            <tr>
+              <td>updateRender3D</td>
+              <td align="center">Function</td>
+              <td align="center">...</td>
+              <td align="center">...</td>
+              <td align="center">x</td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
+      <p>
+        <h4>Element's Info</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Property Name</th>
+              <th align="center">Type</th>
+              <th align="center">Value</th>
+              <th align="center">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>title</td>
+              <td align="center">String</td>
+              <td align="center">'cube'</td>
+              <td align="center">Catalog's tile title</td>
+            </tr>
+            <tr>
+              <td>tag</td>
+              <td align="center">Array</td>
+              <td align="center">['demo']</td>
+              <td align="center">Catalog's tile tags description</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td align="center">String</td>
+              <td align="center">'Demo item'</td>
+              <td align="center">Catalog's tile description</td>
+            </tr>
+            <tr>
+              <td>image</td>
+              <td align="center">String</td>
+              <td align="center">require('./cube.png')</td>
+              <td align="center">Catalog's tile image url</td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
+      <p>
+        <h4>Element Properties</h4>
+        You can specify any prevoiusly registered Catalog's Property.
+        For register a property you should call the Catalog.registerPropertyType function.
+        <h4>Element's render2D</h4>
+        This function take as input parameteres ( element, layer, scene ) and need to return a jsx representation of an svg tag
+        <h4>Element's render3D</h4>
+        This function take as input parameteres ( element, layer, scene ) and need to return a Promise containing a <a href="https://threejs.org/docs/#api/objects/Mesh">Three.js Mesh</a>
+        <h4>Element's updateRender3D</h4>
+        This function take as input parameters
+        ( element, layer, scene, mesh, oldElement, differences, selfDestroy, selfBuild ) and need to
+        return a Promise containing a Three.js Mesh. Usually after an Element variation it will be
+        destroyed and recreated. This is a common use while you're manipulating not so complex Elements.
+        You can bypass this approach and specify the Element's updateRender3D function allowing to
+        directly modify the Mesh instead destroying it.
+      </p>
+    </section>
+
+    <section id="adding-properties">
+      <h3>Create Property</h3>
+      <p>In this example we will create a Color Property.</p>
+      <pre>
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormLabel, FormColorInput } from '../../components/style/export';
+import PropertyStyle from './shared-property-style';
+
+export default function PropertyColor({value, onUpdate, configs, sourceElement, internalState, state}) {
+
+  let update = (val) => {
+
+    if (configs.hook) {
+      return configs.hook(val, sourceElement, internalState, state).then(_val => {
+        return onUpdate(_val);
+      });
+    }
+
+    return onUpdate(val);
+  };
+
+  return (
+    <table className="PropertyColor" style={PropertyStyle.tableStyle}>
+      <tbody>
+      <tr>
+        <td style={PropertyStyle.firstTdStyle}>
+          <FormLabel>{configs.label}</FormLabel>
+        </td>
+        <td>
+          <FormColorInput value={value} onChange={event => update(event.target.value)}/>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  );
+}
+
+PropertyColor.propTypes = {
+  value: PropTypes.any.isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  configs: PropTypes.object.isRequired,
+  sourceElement: PropTypes.object,
+  internalState: PropTypes.object,
+  state: PropTypes.object.isRequired
+};</pre>
+<p>After creating a Property Component like this, you should register it into the Catalog. You can do it calling Catalog.registerPropertyType(['color', PropertyColor, PropertyColor]); specifying the Property's name and the used component. If you got more than one Property to register you can also use the Catalog.registerMultiplePropertyType([['color', PropertyColor, PropertyColor],...]) function that accept an Array of Property as input.</p>
+    </section>
+  </div>
+</body>
+</html>
