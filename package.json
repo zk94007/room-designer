@@ -68,7 +68,7 @@
     "@mapbox/react-range": "0.0.7",
     "area-polygon": "1.0.1",
     "convert-units": "2.3.4",
-    "html-webpack-plugin": "3.2.0",
+    "html-webpack-plugin": "5.5.0",
     "immutable": "3.8.2",
     "immutablediff": "0.4.4",
     "immutablepatch": "0.4.2",
